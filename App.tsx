@@ -29,9 +29,17 @@ const AppStack = createStackNavigator({
 })
 
 const AuthStack = createStackNavigator({
-  Login: LoginScreen,
+  Login: {
+    screen: LoginScreen,
+    navigationOptions: {
+      headerTitle: "Boom"
+    },
+
+  },
   Register: Registration
+
 })
+
 
 
 export default createAppContainer(

@@ -1,17 +1,40 @@
-import React, { ReactElement } from 'react';
-import { View, Text } from 'react-native';
+import React, { Component } from 'react'
+import { View, Text, TouchableOpacity } from 'react-native';
 import styled from 'styled-components';
-interface Props {
+import * as firebase from 'firebase';
+
+export default class HomeScreen extends React.Component {
+  state: {
+    email: "",
+    displayName: ""
+  }
+
+
+  componentDidMount() {
+    const { email, displayName } = firebase.auth().currentUser;
+
+    this.setState({ email, displayName });
+  }
+
+  signOutUser = () => {
+    firebase.auth().signOut();
+  }
+
+  render() {
+    return (
+      <Container>
+        <Text>{this.state?.email}</Text>
+
+        <TouchableOpacity style={{ marginTop: 32 }} onPress={this.signOutUser}>
+          <Text>Signout </Text>
+        </TouchableOpacity>
+      </Container>
+
+    )
+  }
 
 }
 
-export default function Home({ }: Props): ReactElement {
-  return (
-    <Container>
-      <Text>Hellohhhh</Text>
-    </Container>
-  )
-}
 const Container = styled.View`
 flex: 1;
 align-items: center;

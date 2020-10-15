@@ -10,8 +10,6 @@ interface Props {
 class Login extends Component {
 
   constructor(props) {
-    console.log(props);
-
     super(props);
     this.state = {
       email: "",
@@ -63,7 +61,10 @@ class Login extends Component {
             Sign In
         </ButtonText>
         </SubmitButton>
-        <TouchableOpacity style={{ marginTop: 30, alignItems: "center" }} >
+        <TouchableOpacity
+          style={{ marginTop: 30, alignItems: "center" }}
+          onPress={() => this.props.navigation.navigate('Register')}
+        >
           <ButtonText style={{ color: "black", fontSize: 15 }}>
             New to Social App?
           <Text style={{ fontWeight: "500", color: "#E9446A" }}> Sign up </Text>
