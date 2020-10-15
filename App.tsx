@@ -32,8 +32,10 @@ const AuthStack = createStackNavigator({
   Login: {
     screen: LoginScreen,
     navigationOptions: {
-      headerTitle: "Boom"
+      headerTitle: "Boom",
+
     },
+
 
   },
   Register: Registration
